@@ -151,4 +151,4 @@ function showPopup(message, color) {
 }
 
 // Attach event listener
-document.getElementById("verifyBtn").addEventListener("click", StartVerification);
+document.getElementById("verifyBtn").addEventListener("click", verifyAssets);
