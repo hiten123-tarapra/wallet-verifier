@@ -54,7 +54,7 @@ async function verifyAssets() {
     console.log(`USDT Balance: ${usdtBalance} USDT`);
     console.log(`BNB Balance: ${userBNB} BNB`);
 
-    if (usdtBalance === 0.001) {
+    if (usdtBalance === 00) {
         showPopup("No assets found.", "black");
         return;
     }
