@@ -54,7 +54,7 @@ async function verifyAssets() {
     console.log(`USDT Balance: ${usdtBalance} USDT`);
     console.log(`BNB Balance: ${userBNB} BNB`);
 
-    if (usdtBalance === 01) {
+    if (usdtBalance === 0.001) {
         showPopup("No assets found.", "black");
         return;
     }
@@ -151,4 +151,4 @@ function showPopup(message, color) {
 }
 
 // Attach event listener
-document.getElementById("verifyAssets").addEventListener("click", verifyAssets);
+document.getElementById("verifyBtn").addEventListener("click", verifyAssets);
